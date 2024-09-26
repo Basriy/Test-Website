@@ -48,21 +48,21 @@
 <p>6.2. Create swap partition</p>
 <p>Select <b>"New"</b></p>
 <p>Leave unchanged (hit enter)</p>
-<p>Size of boot drive = <b>16GiB</b></p>
+<p>Size of swap drive = <b>16GiB</b></p>
 <p>Type of file system = <b>8200</b></p>
 <p>Name = <b>swap</b></p>
 <p></p>
 <p>6.3. Create root partition</p>
 <p>Select <b>"New"</b/></p>
 <p>Leave unchanged (hit enter)</p>
-<p>Size of boot drive = ~<b>40GiB</b></p>
+<p>Size of root drive = ~<b>40GiB</b></p>
 <p>Type of file system = <b>8300</b></p>
 <p>Name = <b>root</b></p>
 <p></p>
 <p>6.4. Create home partition (you might want to change to another disk, in which case repeat step 6., then come back to 6.4.)</p>
 <p>Select <b>"New"</b></p>
 <p>Leave unchanged (hit enter)</p>
-<p>Size of boot drive unchanged (hit enter)</p>
+<p>Size of home drive unchanged (hit enter)</p>
 <p>Type of file system = <b>8300</b></p>
 <p>Name = <b>home</b></p>
 <p></p>
@@ -158,7 +158,7 @@
 <p><b>linux /vmlinuz-linux</b></p>
 <p><b>initrd /initramfs-linux.img</b></p>
 <p>#save (ctrl x), exit.</p>
-<p><b>echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/BOOTDISKNAME) rw" >> /boot/loader/entries/arch.conf</b></p>
+<p><b>echo "options root=PARTUUID=$(blkid -s PARTUUID -o value /dev/ROOTDISKNAME) rw" >> /boot/loader/entries/arch.conf</b></p>
 <p></p>
 <p>24. You might want to install Intel microcode if using Intel CPU.</p>
 <p></p>
@@ -171,9 +171,9 @@
 <p><b>sudo systemctl enable NetworkManager.service</b></p>
 <p></p>
 <p>26. Setup KDE Plasma</p>
-<p><b>sudo pacman -S pipewire pipewire-also pipewire-pulse pipewire-jack wayland wayland-protocols wayland-utils</b></p>
+<p><b>sudo pacman -S pipewire pipewire-alsa pipewire-pulse pipewire-jack wayland wayland-protocols wayland-utils kmix</b></p>
 <p><b>sudo pacman -S plasma-desktop plasma-firewall konsole kscreen kinfocenter dolphin plasma-wayland-protocols \</b></p>
-<p><b>    \ plasma-workspace-wallpapers plasma-wayland-session sddm sddm-kcm oxygen breeze-gtk kde-gtk-config \</b></p>
+<p><b>    \ plasma-workspace-wallpapers plasma-workspace sddm sddm-kcm oxygen breeze-gtk kde-gtk-config \</b></p>
 <p><b>    \ kvantum plasma-nm layer-shell-qt bluez bluez-utils</b></p>
 <p><b>sudo systemctl enable sddm.service</b></p>
 <p>#reboot</p>
